@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <!--CDN - Bootstrap Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!--CDN - Font Awesome -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+    <!--Loadingbar-->
+    <link href="contents/css/loading-bar.css" rel="stylesheet" />
+    <!--Social Button-->
+    <link href="contents/css/social-buttons.css" rel="stylesheet" />
+    <!--Custom CSS-->
+    <link href="contents/css/site.css" rel="stylesheet" />
+</head>
+<body data-ng-app="AngularAuthApp">
+
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation" data-ng-controller="indexController">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="btn btn-success navbar-toggle" data-ng-click="navbarExpanded = !navbarExpanded">
+                    <span class="glyphicon glyphicon-chevron-down"></span>
+                </button>
+                <a class="navbar-brand" href="#/">Home</a>
+            </div>
+            <div class="collapse navbar-collapse" data-collapse="!navbarExpanded">
+                <ul class="nav navbar-nav navbar-right">
+                    <li data-ng-hide="!authentication.isAuth"><a href="#">Welcome {{authentication.userName}}</a></li>
+                    <li data-ng-hide="!authentication.isAuth"><a ui-sref="orders">My Orders</a></li>
+                    <li data-ng-hide="!authentication.isAuth"><a ui-sref="refresh">Refresh Token</a></li>
+                    <li data-ng-hide="!authentication.isAuth"><a href="" data-ng-click="logOut()">Logout</a></li>
+                    <li data-ng-hide="authentication.isAuth"> <a ui-sref="login">Login</a></li>
+                    <li data-ng-hide="authentication.isAuth"> <a ui-sref="signup">Sign Up</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+   
+    <!-- MAIN CONTENT -->
+    <div class="container">
+
+        <!-- THIS IS WHERE WE WILL INJECT OUR CONTENT ============================== -->
+        <div ui-view></div>
+
+    </div>
+
+    <div id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="text-muted">Created by Taiseer Joudeh. Twitter: <a target="_blank" href="http://twitter.com/tjoudeh">@tjoudeh</a></p>
+                </div>
+                <div class="col-md-6">
+                    <p class="text-muted">Taiseer Joudeh Blog: <a target="_blank" href="http://bitoftech.net">bitoftech.net</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--LIBRARIES-->
+
+    <!--jQuery-->
+    <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
+    <!--CDN - Bootstrap Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!--CDN - Angular -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.js"></script>
+    <!--CDN - UI Router-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.js"></script>
+    <!--Angular Local Storage-->
+    <script src="scripts/angular-local-storage.min.js"></script>
+    <!--Loading bar-->
+    <script src="scripts/loading-bar.min.js"></script>
+
+    <!--Angular app.js-->
+    <script src="app/app.js"></script>
+
+    <!-- Load services -->
+    <script src="app/services/authInterceptorService.js?v=2"></script>
+    <script src="app/services/authService.js?v=2"></script>
+    <script src="app/services/ordersService.js?v=2"></script>
+    <script src="app/services/tokensManagerService.js?v=2"></script>
+    <!-- Load controllers -->
+    <script src="app/controllers/indexController.js?v=2"></script>
+    <script src="app/controllers/homeController.js?v=2"></script>
+    <script src="app/controllers/loginController.js?v=2"></script>
+    <script src="app/controllers/signupController.js?v=2"></script>
+    <script src="app/controllers/ordersController.js?v=2"></script>
+    <script src="app/controllers/refreshController.js?v=2"></script>
+    <script src="app/controllers/tokensManagerController.js?v=2"></script>
+    <script src="app/controllers/associateController.js?v=2"></script>
+    <!-- Load custom filters -->
+    <!-- Load custom directives -->
+
+</body>
+</html>
